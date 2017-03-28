@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CloudKit
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -15,8 +16,6 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
     
     func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
@@ -52,6 +51,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         actionSheetController.addAction(cameraAction)
         actionSheetController.addAction(photoAction)
         actionSheetController.addAction(cancelAction)
+        
+        actionSheetController.popoverPresentationController?.sourceView = self.view
+        actionSheetController.popoverPresentationController?.sourceRect = CGRect(x: 425, y: 425, width: 1.0, height: 1.0)
         
         self.present(actionSheetController, animated: true, completion: nil)
     }
