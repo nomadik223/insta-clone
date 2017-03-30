@@ -31,7 +31,7 @@ class Filters {
             let coreImage = CIImage(image: image)
             filter.setValue(coreImage, forKey: kCIInputImageKey)
             
-            //GPU Context lines, NSNull object that represents nil
+            //GPU Context lines, NSNull object that represents nil? I think? Sorta.
             let options = [kCIContextWorkingColorSpace: NSNull()]
             
             guard let eaglContext = EAGLContext(api: .openGLES2) else { fatalError ("Failed to create EAGLContext.") }
