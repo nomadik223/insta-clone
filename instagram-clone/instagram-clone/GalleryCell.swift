@@ -12,7 +12,14 @@ class GalleryCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    var post: Post! {
+    func stringFromDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: date)
+    }
+    
+    var post : Post! {
         didSet {
             self.imageView.image = post.image
         }

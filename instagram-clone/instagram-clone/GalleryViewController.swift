@@ -20,9 +20,9 @@ class GalleryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         self.collectionView.dataSource = self
-        self.collectionView.collectionViewLayout = GalleryCollectionViewLayout(columns: 3)
+        self.collectionView.collectionViewLayout = GalleryCollectionViewLayout(columns: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -31,7 +31,6 @@ class GalleryViewController: UIViewController {
         update()
     }
     
-    
     func update() {
         CloudKit.shared.getPosts { (posts) in
             if let posts = posts {
@@ -39,12 +38,10 @@ class GalleryViewController: UIViewController {
             }
         }
     }
-
 }
 
-
 //MARK: UICollectionViewDataSource Extension
-extension GalleryViewController : UICollectionViewDataSource {
+extension GalleryViewController : UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GalleryCell.identifier, for: indexPath) as! GalleryCell
         
@@ -56,6 +53,5 @@ extension GalleryViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allPosts.count
     }
-    
 }
 

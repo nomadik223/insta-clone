@@ -18,11 +18,11 @@ class GalleryCollectionViewLayout: UICollectionViewFlowLayout {
     }
     
     var itemWidth : CGFloat {
-        let availableWidth = screenWidth - (CGFloat(self.columns) * self.spacing)
-        return availableWidth / CGFloat(self.columns)
+        let availableScreen = screenWidth - (CGFloat(self.columns) * self.spacing)
+        return availableScreen / CGFloat(self.columns)
     }
     
-    init(columns: Int = 2) {
+    init(columns : Int = 2) {
         self.columns = columns
         
         super.init()
@@ -33,9 +33,7 @@ class GalleryCollectionViewLayout: UICollectionViewFlowLayout {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("Init(coder:) has not been implemented")
-        
-        
+        fatalError("init(coder:) has not been implemented")
     }
-
+    
 }
