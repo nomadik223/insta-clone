@@ -19,21 +19,33 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+            super.viewDidLoad()
         
+            filterButtonTopConstraint.constant = 8
         
+            UIView.animate(withDuration: 1.0) {
+            self.view.layoutIfNeeded()
+            }
+        }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        //postButtonBottomConstraint.constant = 8
         filterButtonTopConstraint.constant = 8
-        
         UIView.animate(withDuration: 1.0) {
             self.view.layoutIfNeeded()
         }
+        
     }
     
-    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType) {
+    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType){
         
         self.imagePicker.delegate = self
         self.imagePicker.sourceType = sourceType
+        imagePicker.allowsEditing = true
         self.present(self.imagePicker, animated: true, completion: nil)
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -41,13 +53,19 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("Info:\(info)")
+        print("Info: \(info)")
         
-        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imageView.image = originalImage
-            Filters.originalImage = originalImage
-        }
-        self.dismiss(animated: true, completion: nil)
+        guard let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage else { return }
+        
+        Filters.originalImage = originalImage
+        
+        self.imageView.image = info["UIImagePickerControllerEditedImage"] as? UIImage
+        
+        imagePickerControllerDidCancel(picker)
+    }
+    
+    func doesHaveCamera() -> Bool {
+        return UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
     }
     
     @IBAction func imageTap(_ sender: Any) {
@@ -60,30 +78,26 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func postButtonPressed(_ sender: Any) {
         
         if let image = self.imageView.image {
-            
             let newPost = Post(image: image)
             CloudKit.shared.save(post: newPost, completion: { (success) in
                 
                 if success {
-                    print("Saved post successfully to CloudKit")
+                    print("Saved Post successfully to CloudKit")
                 } else {
-                    print("Did not successfully save to cloud kit")
+                    print("We did NOT successfully save to CloudKit")
                 }
-                
             })
-            
+            UIImageWriteToSavedPhotosAlbum(image, self, nil, nil)
         }
-        
     }
-    
     
     @IBAction func filterButtonPressed(_ sender: Any) {
         
         guard let image = self.imageView.image else { return }
         
-        let alertController = UIAlertController(title: "Filter", message: "Please select a filter", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Filter", message: "Please select a filter.", preferredStyle: .alert)
         
-        let blackAndWhiteAction = UIAlertAction(title: "Black and White", style: .default) { (action) in
+        let blackAndWhiteAction = UIAlertAction(title: "Black & White", style: .default) { (action) in
             Filters.filter(name: .blackAndWhite, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
@@ -91,6 +105,24 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         let vintageAction = UIAlertAction(title: "Vintage", style: .default) { (action) in
             Filters.filter(name: .vintage, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        let comicEffectAction = UIAlertAction(title: "Comic Effect", style: .default) { (action) in
+            Filters.filter(name: .comicEffect, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        let bumpDistortionAction = UIAlertAction(title: "Bump Distortion", style: .default) { (action) in
+            Filters.filter(name: .distorted, image: image, completion: { (filteredImage) in
+                self.imageView.image = filteredImage
+            })
+        }
+        
+        let lineOverlayAction = UIAlertAction(title: "Line Overlay", style: .default) { (action) in
+            Filters.filter(name: .lineOverlay, image: image, completion: { (filteredImage) in
                 self.imageView.image = filteredImage
             })
         }
@@ -103,31 +135,42 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         alertController.addAction(blackAndWhiteAction)
         alertController.addAction(vintageAction)
+        alertController.addAction(comicEffectAction)
+        alertController.addAction(bumpDistortionAction)
+        alertController.addAction(lineOverlayAction)
         alertController.addAction(resetAction)
         alertController.addAction(cancelAction)
         
         self.present(alertController, animated: true, completion: nil)
-        
     }
     
-    
-    func presentActionSheet() {
-        let actionSheetController = UIAlertController(title: "Source", message: "Please Select Source Tyle", preferredStyle: .actionSheet)
-        let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
-            self.presentImagePickerWith(sourceType: .camera)
+    func presentActionSheet(){
+        
+        let actionSheetController = UIAlertController(title: "Source", message: "Please select Source Type", preferredStyle: .actionSheet)
+        
+        actionSheetController.popoverPresentationController?.sourceView = self.view
+        //actionSheetController.popoverPresentationController?.sourceRect = self.view
+        actionSheetController.modalPresentationStyle = .popover
+        
+        if doesHaveCamera() == true {
+            let cameraAction = UIAlertAction(title: "Camera", style: .default) { (action) in
+                self.presentImagePickerWith(sourceType: .camera)
+            }
+            actionSheetController.addAction(cameraAction)
         }
+        
         let photoAction = UIAlertAction(title: "Photo Library", style: .default) { (action) in
             self.presentImagePickerWith(sourceType: .photoLibrary)
         }
+        
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
         
-        actionSheetController.addAction(cameraAction)
+        
         actionSheetController.addAction(photoAction)
         actionSheetController.addAction(cancelAction)
         
-        actionSheetController.popoverPresentationController?.sourceView = self.view
-        actionSheetController.popoverPresentationController?.sourceRect = CGRect(x: 425, y: 425, width: 1.0, height: 1.0)
-        
         self.present(actionSheetController, animated: true, completion: nil)
+        
     }
+    
 }
