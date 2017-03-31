@@ -11,6 +11,7 @@ import UIKit
 class GalleryCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     
     func stringFromDate(date: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -22,6 +23,7 @@ class GalleryCell: UICollectionViewCell {
     var post : Post! {
         didSet {
             self.imageView.image = post.image
+            self.dateLabel.text = self.stringFromDate(date: post.date)
         }
     }
     

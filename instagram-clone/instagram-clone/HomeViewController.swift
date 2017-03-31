@@ -7,35 +7,33 @@
 //
 
 import UIKit
-import CloudKit
+
+let buttonAnimationDuration = 1.0
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var filterButtonTopConstraint: NSLayoutConstraint!
-    
+    @IBOutlet weak var postButtonBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
-            super.viewDidLoad()
+        super.viewDidLoad()
         
-            filterButtonTopConstraint.constant = 8
+        self.imageView.image = #imageLiteral(resourceName: "Koenigsegg")
+        Filters.originalImage = #imageLiteral(resourceName: "Koenigsegg")
         
-            UIView.animate(withDuration: 1.0) {
-            self.view.layoutIfNeeded()
-            }
-        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //postButtonBottomConstraint.constant = 8
-        //filterButtonTopConstraint.constant = 8
-        //UIView.animate(withDuration: buttonAnimationDuration) {
-          //  self.view.layoutIfNeeded()
-        //}
+        postButtonBottomConstraint.constant = 8
+        filterButtonTopConstraint.constant = 8
+        UIView.animate(withDuration: buttonAnimationDuration) {
+            self.view.layoutIfNeeded()
+        }
         
     }
     
@@ -68,15 +66,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         return UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
     }
     
-    @IBAction func imageTap(_ sender: Any) {
-        print("User Tapped Image!")
-        self.presentActionSheet()
+    @IBAction func imageTapped(_ sender: Any) {
+        print("User tapped image.")
+        presentActionSheet()
     }
     
-    
-    
     @IBAction func postButtonPressed(_ sender: Any) {
-        
         if let image = self.imageView.image {
             let newPost = Post(image: image)
             CloudKit.shared.save(post: newPost, completion: { (success) in
@@ -91,8 +86,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
+    
+    
     @IBAction func filterButtonPressed(_ sender: Any) {
-        
         guard let image = self.imageView.image else { return }
         
         func applyFilter(_ name: FilterName) {
@@ -145,6 +141,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let actionSheetController = UIAlertController(title: "Source", message: "Please select Source Type", preferredStyle: .actionSheet)
         
         actionSheetController.popoverPresentationController?.sourceView = self.view
+        //actionSheetController.popoverPresentationController?.sourceRect = self.view
         actionSheetController.modalPresentationStyle = .popover
         
         if doesHaveCamera() == true {

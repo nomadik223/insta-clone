@@ -84,9 +84,9 @@
 		C87A21C21E897F0C006CABA9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C87A21DC1E8AE728006CABA9 /* Filters.swift */,
 				C87A21D81E8AD0DF006CABA9 /* Post.swift */,
 				C87A21DA1E8AD385006CABA9 /* UIExtensions.swift */,
-				C87A21DC1E8AE728006CABA9 /* Filters.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -95,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				C87A21E01E8C277C006CABA9 /* GalleryCell.swift */,
-				C87A21B91E897CD6006CABA9 /* LaunchScreen.storyboard */,
 				C87A21B41E897CD6006CABA9 /* Main.storyboard */,
+				C87A21B91E897CD6006CABA9 /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -386,6 +386,7 @@
 				C87A21C11E897CD6006CABA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

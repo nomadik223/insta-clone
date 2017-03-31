@@ -1,177 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xDw-a9-Fvt">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
-    <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
-        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-    </dependencies>
-    <scenes>
-        <!--Tab Bar Controller-->
-        <scene sceneID="uhj-QK-pNy">
-            <objects>
-                <tabBarController id="xDw-a9-Fvt" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="Lhc-LZ-cXY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="8LV-ts-z3o"/>
-                        <segue destination="pgo-Yl-H0T" kind="relationship" relationship="viewControllers" id="dSx-lI-N9n"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GHR-Mz-Szf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1092" y="415"/>
-        </scene>
-        <!--POST-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController title="POST" id="BYZ-38-t0r" customClass="HomeViewController" customModule="instagram_clone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lucy" translatesAutoresizingMaskIntoConstraints="NO" id="Lhi-cu-whA">
-                                <rect key="frame" x="47" y="34" width="281" height="519"/>
-                                <color key="tintColor" red="1" green="0.14044363124701753" blue="0.14584468025410902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <gestureRecognizers/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EpC-DN-G1U">
-                                <rect key="frame" x="47" y="19.5" width="281" height="30"/>
-                                <color key="backgroundColor" red="0.25098040700000002" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="POST">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FPs-Hj-0fN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ofm-dx-85m">
-                                <rect key="frame" x="47" y="570" width="281" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ofm-dx-85m" secondAttribute="height" multiplier="281:30" id="y1B-bI-j0p"/>
-                                </constraints>
-                                <state key="normal" title="Filter">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nZH-qa-8Pg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="Lhi-cu-whA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1P6-Hf-k5m"/>
-                            <constraint firstItem="Lhi-cu-whA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-40" id="Eyl-YF-x3u"/>
-                            <constraint firstItem="ofm-dx-85m" firstAttribute="top" secondItem="Lhi-cu-whA" secondAttribute="bottom" constant="17" id="KQ1-XK-UE4"/>
-                            <constraint firstItem="Lhi-cu-whA" firstAttribute="top" secondItem="EpC-DN-G1U" secondAttribute="bottom" constant="-15.5" id="PBe-ay-EMn"/>
-                            <constraint firstItem="Lhi-cu-whA" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.9" constant="-81.300000000000068" id="PIW-MK-5LT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="EpC-DN-G1U" secondAttribute="trailing" constant="31" id="XCt-6v-iwp"/>
-                            <constraint firstItem="EpC-DN-G1U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="31" id="fA3-h1-XfI"/>
-                            <constraint firstItem="Lhi-cu-whA" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="nQB-GF-6Rg"/>
-                            <constraint firstItem="ofm-dx-85m" firstAttribute="leading" secondItem="Lhi-cu-whA" secondAttribute="leading" id="wD4-f2-gqX"/>
-                        </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="d9H-aA-5fy" appends="YES" id="tQ4-Tw-fPi"/>
-                        </connections>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Post" id="gLB-7u-Eau"/>
-                    <connections>
-                        <outlet property="filterButtonTopConstraint" destination="KQ1-XK-UE4" id="Ia6-DA-hvv"/>
-                        <outlet property="imageView" destination="Lhi-cu-whA" id="aw3-Bo-dYc"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="d9H-aA-5fy">
-                    <connections>
-                        <action selector="imageTap:" destination="BYZ-38-t0r" id="Qoc-WP-zF3"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="21.600000000000001" y="43.628185907046479"/>
-        </scene>
-        <!--Gallery-->
-        <scene sceneID="2JP-hi-eTh">
-            <objects>
-                <viewController id="pgo-Yl-H0T" customClass="GalleryViewController" customModule="instagram_clone" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="R9L-X0-gdC"/>
-                        <viewControllerLayoutGuide type="bottom" id="c3L-U8-uDU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="455-u9-GJm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="wpc-7l-bVY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6E6-tK-kUs">
-                                    <size key="itemSize" width="276" height="256"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="c9D-UY-oTA" customClass="GalleryCell" customModule="instagram_clone" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="0.0" width="276" height="256"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="276" height="256"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q5m-Co-T13">
-                                                    <rect key="frame" x="0.0" y="0.0" width="276" height="256"/>
-                                                </imageView>
-                                            </subviews>
-                                        </view>
-                                        <color key="backgroundColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Q5m-Co-T13" secondAttribute="bottom" id="Azb-Ut-QIq"/>
-                                            <constraint firstItem="Q5m-Co-T13" firstAttribute="top" secondItem="c9D-UY-oTA" secondAttribute="top" id="PeC-xL-SON"/>
-                                            <constraint firstItem="Q5m-Co-T13" firstAttribute="leading" secondItem="c9D-UY-oTA" secondAttribute="leading" id="T3b-de-Pe0"/>
-                                            <constraint firstAttribute="trailing" secondItem="Q5m-Co-T13" secondAttribute="trailing" id="zGE-Mc-u3P"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="imageView" destination="Q5m-Co-T13" id="sLU-3h-0vC"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wpc-7l-bVY" firstAttribute="top" secondItem="R9L-X0-gdC" secondAttribute="bottom" id="7hz-Dl-iHm"/>
-                            <constraint firstAttribute="trailing" secondItem="wpc-7l-bVY" secondAttribute="trailing" id="FGm-Iw-9T8"/>
-                            <constraint firstItem="wpc-7l-bVY" firstAttribute="leading" secondItem="455-u9-GJm" secondAttribute="leading" id="LA5-OI-708"/>
-                            <constraint firstItem="c3L-U8-uDU" firstAttribute="top" secondItem="wpc-7l-bVY" secondAttribute="bottom" id="rX1-qf-spL"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Gallery" id="OL5-YW-1pR"/>
-                    <connections>
-                        <outlet property="collectionView" destination="wpc-7l-bVY" id="Dnw-KL-Ube"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sCt-hQ-xP9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="21.600000000000001" y="744.3778110944528"/>
-        </scene>
-    </scenes>
-    <resources>
-        <image name="Lucy" width="335" height="167"/>
-    </resources>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8jN-UL-6cg">
+<device id="retina4_7" orientation="portrait">
+<adaptation id="fullscreen"/>
+</device>
+<dependencies>
+<deployment identifier="iOS"/>
+<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+<capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+<capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+</dependencies>
+<scenes>
+<!--Post-->
+<scene sceneID="tne-QT-ifu">
+<objects>
+<viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="PicFeed" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+<viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ryW-DB-9he">
+<rect key="frame" x="47" y="83.5" width="281" height="500"/>
+<color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+<gestureRecognizers/>
+<connections>
+<outletCollection property="gestureRecognizers" destination="9Dm-QE-sJi" appends="YES" id="GM4-hZ-hzc"/>
+</connections>
+</imageView>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bUo-eC-kfq">
+<rect key="frame" x="47" y="-146.5" width="281" height="30"/>
+<color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+<state key="normal" title="POST">
+<color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</state>
+<connections>
+<action selector="postButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mgw-c6-zQS"/>
+</connections>
+</button>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSX-CF-bll">
+<rect key="frame" x="47" y="783.5" width="281" height="30"/>
+<color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+<state key="normal" title="FILTER">
+<color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+</state>
+<connections>
+<action selector="filterButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WGQ-Gj-gIp"/>
+</connections>
+</button>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<gestureRecognizers/>
+<constraints>
+<constraint firstItem="tSX-CF-bll" firstAttribute="top" secondItem="ryW-DB-9he" secondAttribute="bottom" constant="200" id="2kr-af-hGU"/>
+<constraint firstItem="ryW-DB-9he" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.75" id="6Nu-90-zVv"/>
+<constraint firstItem="bUo-eC-kfq" firstAttribute="width" secondItem="ryW-DB-9he" secondAttribute="width" id="JsY-0W-44k"/>
+<constraint firstItem="tSX-CF-bll" firstAttribute="width" secondItem="ryW-DB-9he" secondAttribute="width" id="SLJ-tO-56S"/>
+<constraint firstItem="ryW-DB-9he" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.75" id="fZD-jy-wac"/>
+<constraint firstItem="ryW-DB-9he" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="heg-vA-5Ef"/>
+<constraint firstItem="bUo-eC-kfq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nm8-f4-Nnb"/>
+<constraint firstItem="ryW-DB-9he" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="pCW-l6-QeN"/>
+<constraint firstItem="ryW-DB-9he" firstAttribute="top" secondItem="bUo-eC-kfq" secondAttribute="bottom" constant="200" id="pKE-3i-FPo"/>
+<constraint firstItem="tSX-CF-bll" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tIg-CX-rQE"/>
+</constraints>
+<connections>
+<outletCollection property="gestureRecognizers" destination="9Dm-QE-sJi" appends="YES" id="jdf-Lq-Pqa"/>
+</connections>
+</view>
+<tabBarItem key="tabBarItem" title="Post" id="Ctn-9K-ei9"/>
+<connections>
+<outlet property="filterButtonTopConstraint" destination="2kr-af-hGU" id="ytd-UP-KzC"/>
+<outlet property="imageView" destination="ryW-DB-9he" id="Ps6-h4-OL6"/>
+<outlet property="postButtonBottomConstraint" destination="pKE-3i-FPo" id="ZIm-7j-4PP"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+<tapGestureRecognizer id="9Dm-QE-sJi">
+<connections>
+<action selector="imageTapped:" destination="BYZ-38-t0r" id="KiV-kY-yNn"/>
+</connections>
+</tapGestureRecognizer>
+</objects>
+<point key="canvasLocation" x="972" y="37.331334332833585"/>
+</scene>
+<!--Gallery-->
+<scene sceneID="2gb-He-0tO">
+<objects>
+<viewController id="azf-kV-gM2" customClass="GalleryViewController" customModule="PicFeed" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="q8g-23-VS7"/>
+<viewControllerLayoutGuide type="bottom" id="2n3-TV-ewJ"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="K0G-YP-KmL">
+<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AO1-6a-YkI">
+<rect key="frame" x="0.0" y="20" width="375" height="598"/>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7nO-kU-BWB">
+<size key="itemSize" width="111" height="111"/>
+<size key="headerReferenceSize" width="0.0" height="0.0"/>
+<size key="footerReferenceSize" width="0.0" height="0.0"/>
+<inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+</collectionViewFlowLayout>
+<cells>
+<collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GalleryCell" id="P1s-SN-LAx" customClass="GalleryCell" customModule="PicFeed" customModuleProvider="target">
+<rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+<view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+<rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
+<autoresizingMask key="autoresizingMask"/>
+<subviews>
+<imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J3m-JP-ims">
+<rect key="frame" x="0.0" y="0.0" width="111" height="111"/>
+</imageView>
+<label userInteractionEnabled="NO" alpha="0.84999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVP-DX-M5T">
+<rect key="frame" x="34" y="90" width="42" height="21"/>
+<color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+<fontDescription key="fontDescription" type="system" pointSize="17"/>
+<color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+</view>
+<constraints>
+<constraint firstItem="CVP-DX-M5T" firstAttribute="centerX" secondItem="P1s-SN-LAx" secondAttribute="centerX" id="01H-ce-XiS"/>
+<constraint firstAttribute="bottom" secondItem="CVP-DX-M5T" secondAttribute="bottom" id="5Gl-0g-qeh"/>
+<constraint firstItem="J3m-JP-ims" firstAttribute="leading" secondItem="P1s-SN-LAx" secondAttribute="leading" id="LD6-pK-2jk"/>
+<constraint firstAttribute="bottom" secondItem="J3m-JP-ims" secondAttribute="bottom" id="lK2-tV-jcN"/>
+<constraint firstItem="J3m-JP-ims" firstAttribute="top" secondItem="P1s-SN-LAx" secondAttribute="top" id="lXR-gr-Jfz"/>
+<constraint firstAttribute="trailing" secondItem="J3m-JP-ims" secondAttribute="trailing" id="svf-3N-EHh"/>
+</constraints>
+<connections>
+<outlet property="dateLabel" destination="CVP-DX-M5T" id="Als-J9-Y0K"/>
+<outlet property="imageView" destination="J3m-JP-ims" id="1Pb-uI-tgG"/>
+</connections>
+</collectionViewCell>
+</cells>
+</collectionView>
+</subviews>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<constraints>
+<constraint firstItem="AO1-6a-YkI" firstAttribute="leading" secondItem="K0G-YP-KmL" secondAttribute="leading" id="0k4-nx-cXZ"/>
+<constraint firstItem="2n3-TV-ewJ" firstAttribute="top" secondItem="AO1-6a-YkI" secondAttribute="bottom" id="EG0-PZ-KHZ"/>
+<constraint firstItem="AO1-6a-YkI" firstAttribute="top" secondItem="q8g-23-VS7" secondAttribute="bottom" id="Q43-yX-OFx"/>
+<constraint firstAttribute="trailing" secondItem="AO1-6a-YkI" secondAttribute="trailing" id="sMc-2x-IWi"/>
+</constraints>
+</view>
+<tabBarItem key="tabBarItem" title="Gallery" id="8Fs-95-4Wf"/>
+<connections>
+<outlet property="collectionView" destination="AO1-6a-YkI" id="O5s-XI-duo"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="KDl-U7-zYh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="989.60000000000002" y="778.56071964017997"/>
+</scene>
+<!--Tab Bar Controller-->
+<scene sceneID="3oy-hS-nUO">
+<objects>
+<tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8jN-UL-6cg" sceneMemberID="viewController">
+<toolbarItems/>
+<tabBar key="tabBar" contentMode="scaleToFill" id="K4F-HJ-shi">
+<autoresizingMask key="autoresizingMask"/>
+<color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+</tabBar>
+<connections>
+<segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="hZe-gd-K6H"/>
+<segue destination="azf-kV-gM2" kind="relationship" relationship="viewControllers" id="3vJ-0W-BJP"/>
+</connections>
+</tabBarController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="p6V-NN-QqF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="-36" y="424"/>
+</scene>
+</scenes>
 </document>

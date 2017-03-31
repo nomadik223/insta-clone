@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 extension UIImage {
     
     func resize(size: CGSize) -> UIImage? {
@@ -22,20 +21,20 @@ extension UIImage {
         
         return resizedImage
     }
-
+    
     var path: URL {
         guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            fatalError("Error getting documents Directory")
+            fatalError("Error getting the documents directory")
         }
         
         return documentsDirectory.appendingPathComponent("image")
-        
     }
-    
 }
 
 extension UIResponder {
-    static  var identifier : String {
+    
+    static var identifier : String {
         return String(describing: self)
     }
+    
 }
