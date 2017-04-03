@@ -10,13 +10,13 @@ import UIKit
 
 class GalleryViewController: UIViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var allPosts = [Post]() {
         didSet {
             self.collectionView.reloadData()
         }
     }
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
